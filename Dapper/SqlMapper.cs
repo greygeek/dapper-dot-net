@@ -236,6 +236,7 @@ namespace Dapper
             typeMap[typeof(Guid)] = DbType.Guid;
             typeMap[typeof(DateTime)] = DbType.DateTime;
             typeMap[typeof(DateTimeOffset)] = DbType.DateTimeOffset;
+            typeMap[typeof(TimeSpan)] = DbType.Time;
             typeMap[typeof(byte[])] = DbType.Binary;
             typeMap[typeof(byte?)] = DbType.Byte;
             typeMap[typeof(sbyte?)] = DbType.SByte;
@@ -253,6 +254,7 @@ namespace Dapper
             typeMap[typeof(Guid?)] = DbType.Guid;
             typeMap[typeof(DateTime?)] = DbType.DateTime;
             typeMap[typeof(DateTimeOffset?)] = DbType.DateTimeOffset;
+            typeMap[typeof(TimeSpan?)] = DbType.Time;
             typeMap[typeof(System.Data.Linq.Binary)] = DbType.Binary;
         }
 
