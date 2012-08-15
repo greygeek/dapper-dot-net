@@ -488,7 +488,16 @@ public class SqlServerAdapter : ISqlAdapter
 		var r = connection.Query("select @@IDENTITY id", transaction: transaction, commandTimeout: commandTimeout);
 		int id = (int)r.First().id;
 		if (keyProperties.Any())
-			keyProperties.First().SetValue(entityToInsert, id, null);
+		{
+			var key = keyProperties.First();
+			if (key.PropertyType != typeof(Int32))
+			{
+				var val = Convert.ChangeType(id, key.PropertyType);
+				key.SetValue(entityToInsert, val, null);
+			}
+			else
+				key.SetValue(entityToInsert, id, null);
+		}
 		return id;
 	}
 }
